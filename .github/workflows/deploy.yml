@@ -15,16 +15,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install Node.js (with pnpm cache)
+      # 1. 优先安装 pnpm
+      # 必须在 setup-node 之前安装 pnpm
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10 # 这里指定你本地使用的 pnpm 版本
+
+      # 2. 然后安装 Node.js 并配置缓存
+      - name: Install Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: "pnpm"
 
-      - name: Install pnpm
-        run: corepack enable && corepack prepare pnpm@latest --activate
-
-      - name: Install Dependencies (pnpm)
+      # 3. 安装依赖
+      - name: Install Dependencies
         run: pnpm install --frozen-lockfile
 
       - name: Build with Nuxt (SSG)
