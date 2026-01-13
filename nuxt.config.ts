@@ -34,7 +34,7 @@ export default defineNuxtConfig({
     // 预渲染配置
     prerender: {
       crawlLinks: true, // 自动爬取链接进行预渲染
-      routes: ["/"], // 确保首页被预渲染
+      routes: ["/"],
     },
   },
 

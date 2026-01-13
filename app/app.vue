@@ -2,6 +2,6 @@
   <div>
     <NuxtRouteAnnouncer />
     <!-- <NuxtWelcome /> -->
-    <h1>欢迎!</h1>
+    <h1>欢迎来到我的技术博客!</h1>
   </div>
 </template>
